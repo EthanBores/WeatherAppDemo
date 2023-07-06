@@ -81,13 +81,13 @@ const App: React.FC = () => {
 
       {showForecast && (
         <div className="weather-forecast">
-          <ForecastBox day={sdf.properties.periods[0].name} temperature={sdf.properties.periods[0].temperature} precipitation={sdf.properties.periods[0].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[0].relativeHumidity.value} windSpeed={sdf.properties.periods[0].windSpeed} />
           <ForecastBox day={sdf.properties.periods[1].name} temperature={sdf.properties.periods[1].temperature} precipitation={sdf.properties.periods[1].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[1].relativeHumidity.value} windSpeed={sdf.properties.periods[1].windSpeed} />
-          <ForecastBox day={sdf.properties.periods[2].name} temperature={sdf.properties.periods[2].temperature} precipitation={sdf.properties.periods[2].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[2].relativeHumidity.value} windSpeed={sdf.properties.periods[2].windSpeed} />
           <ForecastBox day={sdf.properties.periods[3].name} temperature={sdf.properties.periods[3].temperature} precipitation={sdf.properties.periods[3].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[3].relativeHumidity.value} windSpeed={sdf.properties.periods[3].windSpeed} />
-          <ForecastBox day={sdf.properties.periods[4].name} temperature={sdf.properties.periods[4].temperature} precipitation={sdf.properties.periods[4].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[4].relativeHumidity.value} windSpeed={sdf.properties.periods[4].windSpeed} />
           <ForecastBox day={sdf.properties.periods[5].name} temperature={sdf.properties.periods[5].temperature} precipitation={sdf.properties.periods[5].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[5].relativeHumidity.value} windSpeed={sdf.properties.periods[5].windSpeed} />
-          <ForecastBox day={sdf.properties.periods[6].name} temperature={sdf.properties.periods[6].temperature} precipitation={sdf.properties.periods[6].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[6].relativeHumidity.value} windSpeed={sdf.properties.periods[6].windSpeed} />
+          <ForecastBox day={sdf.properties.periods[7].name} temperature={sdf.properties.periods[7].temperature} precipitation={sdf.properties.periods[7].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[7].relativeHumidity.value} windSpeed={sdf.properties.periods[7].windSpeed} />
+          <ForecastBox day={sdf.properties.periods[9].name} temperature={sdf.properties.periods[9].temperature} precipitation={sdf.properties.periods[9].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[9].relativeHumidity.value} windSpeed={sdf.properties.periods[9].windSpeed} />
+          <ForecastBox day={sdf.properties.periods[11].name} temperature={sdf.properties.periods[11].temperature} precipitation={sdf.properties.periods[11].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[11].relativeHumidity.value} windSpeed={sdf.properties.periods[11].windSpeed} />
+          <ForecastBox day={sdf.properties.periods[13].name} temperature={sdf.properties.periods[13].temperature} precipitation={sdf.properties.periods[13].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[13].relativeHumidity.value} windSpeed={sdf.properties.periods[13].windSpeed} />
         </div>
       )}
     </div>
