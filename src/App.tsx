@@ -8,6 +8,7 @@ import axios from 'axios';
 
 declare global{var sdf:SevenDayForecast;}
 
+
 const App: React.FC = () => {
   const [location, setLocation] = useState('');
   const [showForecast, setShowForecast] = useState(false);
@@ -77,6 +78,7 @@ const App: React.FC = () => {
         />
         <button className="button2">Go</button>
       </form>
+
       {showForecast && (
         <div className="weather-forecast">
           <ForecastBox day={sdf.properties.periods[0].name} temperature={sdf.properties.periods[0].temperature} precipitation={sdf.properties.periods[0].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[0].relativeHumidity.value} windSpeed={sdf.properties.periods[0].windSpeed} />
