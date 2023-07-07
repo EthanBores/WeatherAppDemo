@@ -8,6 +8,11 @@ import axios from 'axios';
 
 declare global{var sdf:SevenDayForecast;}
 
+var days:string[];
+var temps:number[];
+var precips:number[];
+var humids:number[];
+var winds:string[];
 
 const App: React.FC = () => {
   const [location, setLocation] = useState('');
@@ -56,7 +61,14 @@ const App: React.FC = () => {
               .then((response) => {
                 // Store the 7 day forecast to a global variable 'sdf'
                 global.sdf = response.data as SevenDayForecast;
-                console.log(sdf);
+
+                for(let i = 0; i < 14; i+2) {
+                  days[i%7] = sdf.properties.periods[i].name;
+                  temps[i%7] = sdf.properties.periods[i].temperature;
+                  precips[i%7] = sdf.properties.periods[i].probabilityOfPrecipitation.value;
+                  humids[i%7] = sdf.properties.periods[i].relativeHumidity.value;
+                  winds[i%7] = sdf.properties.periods[i].windSpeed;
+                }
 
 // Making sure we take care of errors from all those API calls...
 // Indentation removed for greater code readability
@@ -76,12 +88,12 @@ const App: React.FC = () => {
           value={location}
           onChange={handleInputChange}
         />
-        <button className="button2">Go</button>
+        <button className="button2" onSubmit={handleSubmit}>Go</button>
       </form>
 
       {showForecast && (
         <div className="weather-forecast">
-          <ForecastBox day={sdf.properties.periods[1].name} temperature={sdf.properties.periods[1].temperature} precipitation={sdf.properties.periods[1].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[1].relativeHumidity.value} windSpeed={sdf.properties.periods[1].windSpeed} />
+          <ForecastBox day={days[0]} temperature={sdf.properties.periods[1].temperature} precipitation={sdf.properties.periods[1].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[1].relativeHumidity.value} windSpeed={sdf.properties.periods[1].windSpeed} />
           <ForecastBox day={sdf.properties.periods[3].name} temperature={sdf.properties.periods[3].temperature} precipitation={sdf.properties.periods[3].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[3].relativeHumidity.value} windSpeed={sdf.properties.periods[3].windSpeed} />
           <ForecastBox day={sdf.properties.periods[5].name} temperature={sdf.properties.periods[5].temperature} precipitation={sdf.properties.periods[5].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[5].relativeHumidity.value} windSpeed={sdf.properties.periods[5].windSpeed} />
           <ForecastBox day={sdf.properties.periods[7].name} temperature={sdf.properties.periods[7].temperature} precipitation={sdf.properties.periods[7].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[7].relativeHumidity.value} windSpeed={sdf.properties.periods[7].windSpeed} />
