@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# IMPORTANT: You may need Google Chrome extension "Allow CORS: Access-Control-Allow-Origin" for proper functionality. This can be dowloaded at: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
+### IMPORTANT: You may need Google Chrome extension "Allow CORS: Access-Control-Allow-Origin" for proper functionality. This can be dowloaded at: https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf
 
 ## Available Scripts
 
