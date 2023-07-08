@@ -6,12 +6,12 @@ import type ForecastResult from './ForecastResult';
 import type SevenDayForecast from './SevenDayForecast';
 import axios from 'axios';
 
-declare global{var sdf:SevenDayForecast;}
-
 
 const App: React.FC = () => {
   const [location, setLocation] = useState('');
   const [showForecast, setShowForecast] = useState(false);
+  const [sdf, setSdf] = useState<SevenDayForecast | null>(null);
+
 
   // Update location as user enters text
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,8 +55,7 @@ const App: React.FC = () => {
               .get(sevendayURL)
               .then((response) => {
                 // Store the 7 day forecast to a global variable 'sdf'
-                global.sdf = response.data as SevenDayForecast;
-                console.log(sdf);
+                setSdf(response.data as SevenDayForecast);
 
 // Making sure we take care of errors from all those API calls...
 // Indentation removed for greater code readability
@@ -79,7 +78,7 @@ const App: React.FC = () => {
         <button className="button2">Go</button>
       </form>
 
-      {showForecast && (
+      {showForecast && sdf && (
         <div className="weather-forecast">
           <ForecastBox day={sdf.properties.periods[1].name} temperature={sdf.properties.periods[1].temperature} precipitation={sdf.properties.periods[1].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[1].relativeHumidity.value} windSpeed={sdf.properties.periods[1].windSpeed} />
           <ForecastBox day={sdf.properties.periods[3].name} temperature={sdf.properties.periods[3].temperature} precipitation={sdf.properties.periods[3].probabilityOfPrecipitation.value} humidity={sdf.properties.periods[3].relativeHumidity.value} windSpeed={sdf.properties.periods[3].windSpeed} />
